@@ -1,0 +1,323 @@
+generated: '2026-07-22'
+method: derived
+status: candidate
+source: openapi/ (14 Swagger 1.1 definitions harvested from developers.b3.com.br)
+server:
+  name: b3-exchange
+  transport: http
+notes: No official B3 MCP server was found (portal, npm, official MCP registry). Candidate tool list derived one
+  tool per operation from the harvested Swagger 1.1 definitions. All operations require contract-gated OAuth 2.0
+  credentials; a real server would need B2B onboarding with B3.
+tools:
+- name: aapi_oauth_token
+  description: /aapi/oauth/token
+  source_operation: openapi/b3-exchange-auth-client-credentials-openapi.json#POST
+- name: api_oauth_token
+  description: /api/oauth/token
+  source_operation: openapi/b3-exchange-auth-ropc-openapi.json#POST
+- name: elatorios_ovimentacao_dentificado_eq_et
+  description: Retorna dados baseados na movimentação identificado de um passivo, a partir da carteira de um fundo
+    no Banco B3.
+  source_operation: openapi/b3-exchange-banco-b3-custody-openapi.json#RelatoriosMovimentacaoIdentificadoReqGet
+- name: alidacao_ota_onsulta_ota_eq_et
+  description: Retorna um grupo com valores de cotas de um fundo
+  source_operation: openapi/b3-exchange-banco-b3-custody-openapi.json#ValidacaoCotaConsultaCotaReqGet
+- name: alidacao_ota_alida_ota_eq_atch
+  description: Alterar o status de validação da cota de fundo
+  source_operation: openapi/b3-exchange-banco-b3-custody-openapi.json#ValidacaoCotaValidaCotaReqPatch
+- name: elatorios_aixa_nline_eq_et
+  description: Retorna dados online dos lançamentos da conta corrente do fundo no Banco B3.
+  source_operation: openapi/b3-exchange-banco-b3-custody-openapi.json#RelatoriosCaixaOnlineReqGet
+- name: elatorios_ovimentacao_undo_eq_et
+  description: Retorna dados baseados na movimentação de um passivo, a partir da carteira de um fundo no Banco B3.
+  source_operation: openapi/b3-exchange-banco-b3-custody-openapi.json#RelatoriosMovimentacaoFundoReqGet
+- name: oletas_enda_ixa_efinitiva_eq_ost
+  description: Insere operações de compra e venda nos mercados de renda fixa definitiva a ser processada pelo sistema
+    (Máximo de 50 boletas).
+  source_operation: openapi/b3-exchange-banco-b3-custody-openapi.json#BoletasRendaFixaDefinitivaReqPost
+- name: oletas_onsulta_enda_ixa_eq_et
+  description: Consulta do lote de boletas renda fixa a fim de saber o status das boletas nele contida.
+  source_operation: openapi/b3-exchange-banco-b3-custody-openapi.json#BoletasConsultaRendaFixaReqGet
+- name: oletas_onsulta_otas_undos_eq_et
+  description: Consulta do lote de boletas de cotas fundos a fim de saber o status das boletas nele contida.
+  source_operation: openapi/b3-exchange-banco-b3-custody-openapi.json#BoletasConsultaCotasFundosReqGet
+- name: oletas_otas_undo_eq_ost
+  description: API com o objetivo de input pelo cliente das operações de compra e venda em cotas de fundos, para
+    determinado fundo e data.
+  source_operation: openapi/b3-exchange-banco-b3-custody-openapi.json#BoletasCotasFundoReqPost
+- name: elatorios_osicao_assivo_autela_eq_et
+  description: Retorna dados baseados na posição por cautela de um passivo, a partir da carteira de um fundo no
+    Banco B3.
+  source_operation: openapi/b3-exchange-banco-b3-custody-openapi.json#RelatoriosPosicaoPassivoCautelaReqGet
+- name: elatorios_arteira_ml_eq_et
+  description: Retorna a posição da carteira do fundo em formato JSON ou XML, dados baseados no padrão XML ANBIMA
+    4.01
+  source_operation: openapi/b3-exchange-banco-b3-custody-openapi.json#RelatoriosCarteiraXmlReqGet
+- name: elatorios_ovimentacao_or_onta_rdem_eq_et
+  description: Retorna dados baseados na movimentação por conta e ordem de um passivo, a partir da carteira de um
+    fundo no Banco B3.
+  source_operation: openapi/b3-exchange-banco-b3-custody-openapi.json#RelatoriosMovimentacaoPorContaOrdemReqGet
+- name: oletas_enda_ariavel_eq_ost
+  description: Insere operações de compra e venda nos mercados de renda variável à vista e de opções a ser processada
+    pelo sistema (Máximo de 50 boletas).
+  source_operation: openapi/b3-exchange-banco-b3-custody-openapi.json#BoletasRendaVariavelReqPost
+- name: oletas_enda_arival_tatus_eq_et
+  description: Consulta status de um lote de operações de compra e venda nos mercados de renda variável à vista
+    e de opções.
+  source_operation: openapi/b3-exchange-banco-b3-custody-openapi.json#BoletasRendaVarivalStatusReqGet
+- name: ublicpaymentqrcodereqpost
+  description: Solicita a criação de um novo QrCode contendo as informações para realização do pagamento.
+  source_operation: openapi/b3-exchange-banco-b3-settlement-openapi.json#Publicpaymentqrcodereqpost
+- name: ublic_ayment_rcode_equest_ode_eq_et
+  description: Consulta a Solicitação de QrCode através do código da requisição.
+  source_operation: openapi/b3-exchange-banco-b3-settlement-openapi.json#PublicPaymentQrcodeRequestCodeReqGet
+- name: ublic_ebhook_ix_ey_eq_ut
+  description: Inativa a chave pix do cliente para envio de notificações.
+  source_operation: openapi/b3-exchange-banco-b3-settlement-openapi.json#PublicWebhookPixKeyReqPut
+- name: ublic_ebhook_ix_ey_eq_ost
+  description: Cadastra chave pix do cliente que deseja receber mensagens criando uma chave RSA Publica e Privada
+    para o cliente (não salvamos a chave Privada).
+  source_operation: openapi/b3-exchange-banco-b3-settlement-openapi.json#PublicWebhookPixKeyReqPost
+- name: ublic_ayment_rcode_equest_ode_ng_eq_et
+  description: Obtém o QrCode no formato png para pagamento via pix.
+  source_operation: openapi/b3-exchange-banco-b3-settlement-openapi.json#PublicPaymentQrcodeRequestCodePngReqGet
+- name: ublicstatementspixreqget
+  description: Consulta o extrato PIX da conta informada.
+  source_operation: openapi/b3-exchange-banco-b3-settlement-openapi.json#Publicstatementspixreqget
+- name: ublicbankaccountsbalancereqget
+  description: Consulta o saldo de uma conta bancária.
+  source_operation: openapi/b3-exchange-banco-b3-settlement-openapi.json#Publicbankaccountsbalancereqget
+- name: ublic_efund_code_equest_ode_eq_ut
+  description: Solicita a devolução de pagamento pix com base no requestCode informado.
+  source_operation: openapi/b3-exchange-banco-b3-settlement-openapi.json#PublicRefundQcodeRequestCodeReqPut
+- name: ublicrefundqrcodereqget
+  description: Consulta a Devolução de Pix recebido através do código da devolução.
+  source_operation: openapi/b3-exchange-banco-b3-settlement-openapi.json#Publicrefundqrcodereqget
+- name: ublic_ayment_rcode_equest_ode_ase_ode_eq_et
+  description: Obtém o QrCode no formato base64 para pagamento via pix.
+  source_operation: openapi/b3-exchange-banco-b3-settlement-openapi.json#PublicPaymentQrcodeRequestCodeBaseCodeReqGet
+- name: isk_ortfolio_eq_et
+  description: Gets the account s portifolio
+  source_operation: openapi/b3-exchange-core-calculation-openapi.json#RiskPortfolioReqGet
+- name: cr_alculation_token_eq_et
+  description: Gets the fcr calculation result
+  source_operation: openapi/b3-exchange-core-calculation-openapi.json#FcrCalculationTtokenReqGet
+- name: isk_ccount_eq_et
+  description: Gets the list of accounts for calculation
+  source_operation: openapi/b3-exchange-core-calculation-openapi.json#RiskAccountReqGet
+- name: cr_alculation_eq_ost
+  description: Requests the fcr calculation (async)
+  source_operation: openapi/b3-exchange-core-calculation-openapi.json#FcrCalculationReqPost
+- name: eference_ata_eq_et
+  description: Gets the reference data
+  source_operation: openapi/b3-exchange-core-calculation-openapi.json#ReferenceDataReqGet
+- name: lteracao_eq_ost
+  description: Alteração de Sinistros
+  source_operation: openapi/b3-exchange-insurance-claim-openapi.json#AlteracaoReqPost
+- name: egistro_eq_ost
+  description: Registro de Sinistros
+  source_operation: openapi/b3-exchange-insurance-claim-openapi.json#RegistroReqPost
+- name: ecurity_ending_osition_et
+  description: Dados até D-1 do saldo de investimentos nas contas do investidor referente a empréstimo de ativos
+  source_operation: openapi/b3-exchange-investor-position-openapi.json#SecurityLendingPositionGet
+- name: quities_osition_et
+  description: Dados até D-1 do saldo de investimentos nas contas do investidor referente a ação.
+  source_operation: openapi/b3-exchange-investor-position-openapi.json#EquitiesPositionGet
+- name: ixed_ncome_osition_et
+  description: Dados até D-1 do saldo de investimentos nas contas do investidor referente a renda fixa.
+  source_operation: openapi/b3-exchange-investor-position-openapi.json#FixedIncomePositionGet
+- name: reasury_onds_osition_et
+  description: Dados até D-1 do saldo de investimentos nas contas do investidor referente a tesouro direto.
+  source_operation: openapi/b3-exchange-investor-position-openapi.json#TreasuryBondsPositionGet
+- name: erivatives_wap_osition_et
+  description: Dados até D-1 do saldo de investimentos nas contas do investidor referente a  Derivativos - Swap.
+  source_operation: openapi/b3-exchange-investor-position-openapi.json#DerivativesSwapPositionGet
+- name: ecurities_ending_ovement_et
+  description: Dados até D-1 das transações em empréstimo de ativos ocorridas nas contas do investidor em um determinado
+    período.
+  source_operation: openapi/b3-exchange-investor-transactions-openapi.json#SecuritiesLendingMovementGet
+- name: quities_ovement_et
+  description: Dados até D-1 das transações em ações ocorridas nas contas do investidor em um determinado período.
+  source_operation: openapi/b3-exchange-investor-transactions-openapi.json#EquitiesMovementGet
+- name: ixed_ncome_ovement_et
+  description: Dados até D-1 das transações em renda fixa ocorridas nas contas do investidor em um determinado período.
+  source_operation: openapi/b3-exchange-investor-transactions-openapi.json#FixedIncomeMovementGet
+- name: reasury_onds_ovement_et
+  description: Dados até D-1 das transações em tesouro direto ocorridas nas contas do investidor em um determinado
+    período.
+  source_operation: openapi/b3-exchange-investor-transactions-openapi.json#TreasuryBondsMovementGet
+- name: erivatives_et
+  description: Dados até D-1 dos eventos corporativos de renda variável provisionados por investidor.
+  source_operation: openapi/b3-exchange-investor-transactions-openapi.json#DerivativesGet
+- name: sin_ode_eq_elete
+  description: Delete a ISIN by its code
+  source_operation: openapi/b3-exchange-isin-openapi.json#IsinCodeReqDelete
+- name: sin_ode_eq_atch
+  description: Update a ISIN
+  source_operation: openapi/b3-exchange-isin-openapi.json#IsinCodeReqPatch
+- name: sin_ode_eq_et
+  description: Find ISIN data by ISIN code. Returns detailed information about an ISIN based on its code
+  source_operation: openapi/b3-exchange-isin-openapi.json#IsinCodeReqGet
+- name: sin_atches_eq_ost
+  description: Create Isin Batch
+  source_operation: openapi/b3-exchange-isin-openapi.json#IsinBatchesReqPost
+- name: sin_atches_eq_atch
+  description: Update ISINs
+  source_operation: openapi/b3-exchange-isin-openapi.json#IsinBatchesReqPatch
+- name: sin_eq_et
+  description: Find ISINs.Returns detailed information about the ISINs
+  source_operation: openapi/b3-exchange-isin-openapi.json#IsinReqGet
+- name: sin_eq_ost
+  description: Create a new ISIN
+  source_operation: openapi/b3-exchange-isin-openapi.json#IsinReqPost
+- name: roduct_atches1_eq_et
+  description: Esse endpoint retornará as combinações de Tipos de Produtos x Forma de Acondicionamento x Unidades
+    de Medida, formando Cestas de Produtos. Em APIs de Registro Alteração de Instrumentos Financeiros Agr
+  source_operation: openapi/b3-exchange-otc-public-info-openapi.json#ProductBatches1ReqGet
+- name: nterest_urrencies2_eq_et
+  description: Esse endpoint fará a consulta de Domínios, Curvas, Feeders e Moedas, retornando os seus códigos internos
+    e respectivas descrições. O resultado dessa API pode variar conforme o ambiente (testes x produ
+  source_operation: openapi/b3-exchange-otc-public-info-openapi.json#InterestCurrencies2ReqGet
+- name: ll_rade_eq
+  description: Retorna os últimos negócios gerados do mercado de um instrumento.
+  source_operation: openapi/b3-exchange-securities-lending-openapi.json#AllTradeReq
+- name: anking_rade_eq
+  description: Ranking de Negócios - Retorna o total de negócios e respectivas quantidades de ativos um ou mais
+    instrumentos. Este método está disponível para instrumentos de renda variável.
+  source_operation: openapi/b3-exchange-securities-lending-openapi.json#RankingTradeReq
+- name: irect_ffer_eq
+  description: Realiza o fechamento direto de negócio.
+  source_operation: openapi/b3-exchange-securities-lending-openapi.json#DirectOfferReq
+- name: tatus_rade_eq
+  description: Consultar Situação do Negócio - Retorna o status de um negócio.
+  source_operation: openapi/b3-exchange-securities-lending-openapi.json#StatusTradeReq
+- name: tatus_ffer_eq
+  description: Consultar situação da oferta - Retorna o status de uma oferta enviada ao book de ofertas públicas.
+  source_operation: openapi/b3-exchange-securities-lending-openapi.json#StatusOfferReq
+- name: ist_ffer_eq
+  description: Retorna book de profundidade de ofertas públicas de um instrumento.
+  source_operation: openapi/b3-exchange-securities-lending-openapi.json#ListOfferReq
+- name: rade_eq
+  description: Retorna os dados de um negócio realizado
+  source_operation: openapi/b3-exchange-securities-lending-openapi.json#TradeReq
+- name: ancellation_ffer_eq
+  description: Cancela uma oferta do book de ofertas públicas ou privadas.
+  source_operation: openapi/b3-exchange-securities-lending-openapi.json#CancellationOfferReq
+- name: ancellation_ffer_articipant_eq
+  description: Cancela uma oferta do book de ofertas públicas ou privadas.
+  source_operation: openapi/b3-exchange-securities-lending-openapi.json#CancellationOfferParticipantReq
+- name: anking_ffer_articipant_eq
+  description: Consultar Ranking Participante Ofertas - Retorna lista de participantes, respectivos números de ofertas
+    e quantidades de ativos de um instrumento. Este método está disponível para instrumentos de rend
+  source_operation: openapi/b3-exchange-securities-lending-openapi.json#RankingOfferParticipantReq
+- name: it_ender_fferr_eq
+  description: Agride uma oferta doadora no book de ofertas públicas ou privadas.
+  source_operation: openapi/b3-exchange-securities-lending-openapi.json#HitLenderOfferrReq
+- name: anking_ffer_articipant_inancial_olume_eq
+  description: Consulta Ranking Participante por Volume Financeiro de Ofertas - Retorna lista de participantes e
+    respectivos volumes financeiros de ofertas.
+  source_operation: openapi/b3-exchange-securities-lending-openapi.json#RankingOfferParticipantFinancialVolumeReq
+- name: rivate_ffer_eq
+  description: Consultar ofertas privadas (direcionadas) - Retorna lista de ofertas privadas enviadas e recebidas.
+  source_operation: openapi/b3-exchange-securities-lending-openapi.json#PrivateOfferReq
+- name: anking_rade_articipant_inancial_olume_eq
+  description: Consulta Ranking Participante por Volume Financeiro de Negócios - Retorna lista de participantes
+    e respectivos volumes financeiros de negócios. Este método está disponível para instrumentos de renda v
+  source_operation: openapi/b3-exchange-securities-lending-openapi.json#RankingTradeParticipantFinancialVolumeReq
+- name: anking_ffer_eq
+  description: Ranking de Ofertas – Retorna o total de ofertas disponíveis e quantidade total de ativos de um ou
+    mais instrumentos. Este método está disponível para instrumentos de renda variável.
+  source_operation: openapi/b3-exchange-securities-lending-openapi.json#RankingOfferReq
+- name: op_ffer_eq
+  description: Retorna book de ofertas públicas com a melhor oferta de cada instrumento solicitado.
+  source_operation: openapi/b3-exchange-securities-lending-openapi.json#TopOfferReq
+- name: vent_eq
+  description: Retorna os últimos eventos de alterações de ofertas e negócios.
+  source_operation: openapi/b3-exchange-securities-lending-openapi.json#EventReq
+- name: ntry_ffer_eq
+  description: Envia uma oferta ao book de ofertas públicas ou privadas.
+  source_operation: openapi/b3-exchange-securities-lending-openapi.json#EntryOfferReq
+- name: anking_rade_articipant_eq
+  description: Consultar Ranking Participante Negócios - Retorna lista de participantes, respectivos números de
+    negócios e quantidades de ativos de um instrumento. Este método está disponível para instrumentos de re
+  source_operation: openapi/b3-exchange-securities-lending-openapi.json#RankingTradeParticipantReq
+- name: ffer_eq
+  description: Retorna os dados de uma oferta enviada ao book de ofertas públicas.
+  source_operation: openapi/b3-exchange-securities-lending-openapi.json#OfferReq
+- name: ist_rade_eq
+  description: Retorna lista de negócios realizados.
+  source_operation: openapi/b3-exchange-securities-lending-openapi.json#ListTradeReq
+- name: ist_ublic_ffer_eq
+  description: Consultar lista de ofertas - Retorna a lista de ofertas enviadas ao book de ofertas públicas.
+  source_operation: openapi/b3-exchange-securities-lending-openapi.json#ListPublicOfferReq
+- name: nstrument_eq
+  description: Retorna lista de instrumentos de títulos públicos federais válidos para empréstimo e compromissada.
+  source_operation: openapi/b3-exchange-securities-lending-openapi.json#InstrumentReq
+- name: it_orrower_ffer_eq
+  description: Agride uma oferta tomadora no book de ofertas públicas ou privadas.
+  source_operation: openapi/b3-exchange-securities-lending-openapi.json#HitBorrowerOfferReq
+- name: quity_nstrument_eq
+  description: Retorna lista de instrumentos de renda variável aceitos, incluindo as informações da taxa média,
+    taxa mínima e taxa máxima para cada papel, por modalidade de negociação.
+  source_operation: openapi/b3-exchange-securities-lending-openapi.json#EquityInstrumentReq
+- name: reasury_onds_et
+  description: Obtain information about a public security.
+  source_operation: openapi/b3-exchange-tesouro-direto-bonds-openapi.json#TreasuryBondsGet
+- name: nums_usinesssegments1_eq_et
+  description: Return list of enumerations that define types of business segment for government securities traded
+    in the Direct Treasury markets
+  source_operation: openapi/b3-exchange-tesouro-direto-bonds-openapi.json#EnumsBusinesssegments1ReqGet
+- name: ndextypes_et
+  description: Return list of enumerations that define indexers related to government bonds.
+  source_operation: openapi/b3-exchange-tesouro-direto-bonds-openapi.json#IndextypesGet
+- name: onds_et
+  description: Obtain information about a public security.
+  source_operation: openapi/b3-exchange-tesouro-direto-bonds-openapi.json#BondsGet
+- name: onds_ypes_et
+  description: Return list of enumerations that define a public title type.
+  source_operation: openapi/b3-exchange-tesouro-direto-bonds-openapi.json#BondsTypesGet
+- name: ortabilities_eq_et
+  description: Get details of the portability transaction
+  source_operation: openapi/b3-exchange-tesouro-direto-orders-openapi.json#PortabilitiesReqGet
+- name: ransfers_ngoing_eq_et
+  description: List in progress transfers based upon the participant code.
+  source_operation: openapi/b3-exchange-tesouro-direto-orders-openapi.json#TransfersOngoingReqGet
+- name: pecial_ules_edemptions_eq_ost
+  description: Redemption operation record (Sale) for the Pé de Meia
+  source_operation: openapi/b3-exchange-tesouro-direto-orders-openapi.json#SpecialRulesRedemptionsReqPost
+- name: ortabilities_eq_ost
+  description: Register portability
+  source_operation: openapi/b3-exchange-tesouro-direto-orders-openapi.json#PortabilitiesReqPost
+- name: rder_ypes_et
+  description: List enumerations that define the types of operations available
+  source_operation: openapi/b3-exchange-tesouro-direto-orders-openapi.json#OrderTypesGet
+- name: pecial_ules_eq_et
+  description: Pé-de-Meia position inquiry
+  source_operation: openapi/b3-exchange-tesouro-direto-orders-openapi.json#SpecialRulesReqGet
+- name: ortabilities_ettlements_ancels_eq_atch
+  description: Cancel an on going transfer request
+  source_operation: openapi/b3-exchange-tesouro-direto-orders-openapi.json#PortabilitiesSettlementsCancelsReqPatch
+- name: ortabilities_ettlements_onfirms_eq_atch
+  description: Settle a transfer request
+  source_operation: openapi/b3-exchange-tesouro-direto-orders-openapi.json#PortabilitiesSettlementsConfirmsReqPatch
+- name: rders_et
+  description: List enumerations that define the states of operations.
+  source_operation: openapi/b3-exchange-tesouro-direto-orders-openapi.json#OrdersGet
+- name: rder_tatus_et
+  description: List enumerations that define the states of operations.
+  source_operation: openapi/b3-exchange-tesouro-direto-orders-openapi.json#OrderStatusGet
+- name: locked_ollateral_ost
+  description: Register collateral blocking request with Treasury Bond.
+  source_operation: openapi/b3-exchange-tesouro-direto-orders-openapi.json#BlockedCollateralPost
+- name: nblocked_ollateral_ost
+  description: Register collateral release request with Treasury Bond .
+  source_operation: openapi/b3-exchange-tesouro-direto-orders-openapi.json#UnblockedCollateralPost
+- name: ositions_ynthetic_et
+  description: Places available to an investor
+  source_operation: openapi/b3-exchange-tesouro-direto-positions-openapi.json#PositionsSyntheticGet
+- name: osition_locked_et
+  description: Return information about locked positions to an investor in a synthetic form.
+  source_operation: openapi/b3-exchange-tesouro-direto-positions-openapi.json#PositionBlockedGet
+- name: art_ypes_et
+  description: Return list of enumerations that define a public title type.
+  source_operation: openapi/b3-exchange-tesouro-direto-positions-openapi.json#CartTypesGet

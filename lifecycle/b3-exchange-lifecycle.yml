@@ -1,0 +1,34 @@
+generated: '2026-07-22'
+method: derived
+source: openapi/ (portal lifecycle metadata in Swagger 1.1 definitions) + https://developers.b3.com.br/faq
+versioning:
+  scheme: uri-path
+  evidence: >-
+    Versions are carried in the URI path per product - /api/position/v3,
+    /api/movement/v2, /api/isins/v1, /api/securities-lending/v2,
+    /api/custodias/v1, /api/settlements/v1, /api/cors-app/v2,
+    /api/sinistros/v3, /homebroker/api/bonds/v1, /homebroker/api/orders/v1,
+    /homebroker/api/positions/v1.
+  changelog: >-
+    Per the portal FAQ, each API's documentation carries a Change Log section
+    with the evolution history of each version together with its
+    certification and production dates (portal-rendered, per API).
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: >-
+    No public deprecation policy or RFC 8594 Sunset header support found.
+    The portal's API manager tracks per-API lifecycle state - all 14
+    harvested definitions carry state: published, deprecated: false,
+    retired: false, retirementDate: null.
+sla:
+  url: null
+  notes: No public SLA found; service levels are handled in B2B contracts.
+status_page: null
+status_page_notes: No public status page found (status.b3.com.br does not resolve).
+deprecated_operations: []
+environments:
+  - name: certification
+    notes: Per-API docs publish separate CERTIFICATION and PRODUCTION host addresses (FAQ); hosts are entitlement-managed per client.
+  - name: production
+    notes: Production hosts issued per contract; portal Swagger carries the gateway placeholder https://developers.b3.com.br:8065.

@@ -1,0 +1,59 @@
+generated: '2026-07-22'
+method: searched
+source: https://www.b3.com.br/.well-known/security.txt
+hosts:
+  - https://www.b3.com.br
+  - https://developers.b3.com.br
+  - https://developers.b3.com.br:8065
+documents:
+  - path: /.well-known/security.txt
+    host: https://www.b3.com.br
+    status: 200
+    file: b3-exchange-security.txt
+    note: RFC 9116 security.txt - Contact incidente.seguranca@b3.com.br, Expires 2030-01-01. Same file served on developers.b3.com.br.
+  - path: /.well-known/security.txt
+    host: https://developers.b3.com.br
+    status: 200
+    file: b3-exchange-security.txt
+  - path: /.well-known/openid-configuration
+    host: https://www.b3.com.br
+    status: 200
+    note: Soft-404 - returns the site's HTML shell, not an OIDC discovery document.
+  - path: /.well-known/openid-configuration
+    host: https://developers.b3.com.br
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    host: https://developers.b3.com.br
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    host: https://www.b3.com.br
+    status: 302
+    note: Redirects to the HTML site shell - no RFC 8414 metadata.
+  - path: /.well-known/api-catalog
+    host: https://developers.b3.com.br
+    status: 404
+  - path: /.well-known/api-catalog
+    host: https://www.b3.com.br
+    status: 302
+    note: Redirects to the HTML site shell.
+  - path: /.well-known/ai-plugin.json
+    host: https://developers.b3.com.br
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    host: https://www.b3.com.br
+    status: 302
+    note: Redirects to the HTML site shell.
+  - path: /llms.txt
+    host: https://developers.b3.com.br
+    status: 403
+  - path: /llms.txt
+    host: https://www.b3.com.br
+    status: 200
+    note: Soft-404 - returns the site's HTML shell, not an llms.txt.
+  - path: /openapi.json
+    host: https://developers.b3.com.br
+    status: 404
+  - path: /openapi.json
+    host: https://developers.b3.com.br:8065
+    status: 0
+    note: API gateway host does not answer anonymous connections (connection failed).

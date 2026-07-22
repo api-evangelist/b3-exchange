@@ -1,0 +1,18 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for B3 Positions
+  version: 1.0.0
+extends: openapi/b3-exchange-tesouro-direto-positions-openapi.json
+actions:
+- target: $
+  update:
+    x-apievangelist:
+      provider: b3-exchange
+      harvested: '2026-07-22'
+      source: https://developers.b3.com.br/ (public swaggerLoad endpoint, Swagger 1.1 discovery format)
+      access: B2B contract-gated; OAuth 2.0 bearer (client credentials / ROPC); Mutual TLS with certificate pinning
+        in production
+      language: pt-BR (operation summaries and model descriptions are Portuguese)
+- target: $.basePath
+  description: Documented portal gateway base path; production and certification hosts are entitlement-managed per
+    client contract.

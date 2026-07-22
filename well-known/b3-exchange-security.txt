@@ -1,0 +1,4 @@
+Canonical: https://b3.com.br/.well-known/security.txt
+Canonical: https://www.b3.com.br/.well-known/security.txt
+Contact: mailto:incidente.seguranca@b3.com.br
+Expires: 2030-01-01T00:00:00Z

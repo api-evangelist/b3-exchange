@@ -1,0 +1,58 @@
+generated: '2026-07-22'
+method: searched
+source: https://developers.b3.com.br/faq (HTTP status code reference) + openapi/ Error models
+format: custom-envelope
+envelope:
+  shape: '{ "errors": [ { "code", "title", "detail" } ] }'
+  fields:
+    - name: code
+      description: Business error code (string, max 10 chars).
+    - name: title
+      description: Short error message (max 100 chars).
+    - name: detail
+      description: Complementary information about the error.
+  evidence: Error + errors models present identically across the harvested Swagger 1.1 definitions.
+problems:
+  - status: 400
+    title: Bad Request
+    detail: Request failure - some field was sent incorrectly.
+    source: https://developers.b3.com.br/faq
+  - status: 401
+    title: Unauthorized
+    detail: No permission - authorization failure.
+    source: https://developers.b3.com.br/faq
+  - status: 403
+    title: Forbidden
+    detail: The request was lost between the application and the server.
+    source: https://developers.b3.com.br/faq
+  - status: 404
+    title: Not Found
+    detail: Route not found.
+    source: https://developers.b3.com.br/faq
+  - status: 422
+    title: Unprocessable Entity
+    detail: Business error - some field carries business-incompatible information.
+    source: https://developers.b3.com.br/faq
+  - status: 429
+    title: Too Many Requests
+    detail: Excess of requests in a short period of time (rate limit / throttle - see https://developers.b3.com.br/seguranca).
+    source: https://developers.b3.com.br/faq
+  - status: 500
+    title: Internal Server Error
+    detail: Difficulty processing the request.
+    source: https://developers.b3.com.br/faq
+  - status: 503
+    title: Service Unavailable
+    detail: Service is down.
+    source: https://developers.b3.com.br/faq
+  - status: 504
+    title: Gateway Timeout
+    detail: Gateway exceeded the response time.
+    source: https://developers.b3.com.br/faq
+notes: >-
+  B3 does not use RFC 9457 application/problem+json. The catalog-wide error
+  envelope is an errors[] array of {code, title, detail} objects, documented
+  identically in every harvested Swagger definition. The portal FAQ publishes
+  the catalog-wide HTTP status code table captured above. The Swagger 1.1
+  discovery format carries no per-operation responseMessages, so per-operation
+  error enumeration is not derivable.

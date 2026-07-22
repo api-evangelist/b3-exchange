@@ -1,0 +1,64 @@
+generated: '2026-07-22'
+method: searched
+source: openapi/ (12 of 14 harvested Swagger 1.1 definitions declare oauth2 authorizations)
+docs: https://developers.b3.com.br/apis/autenticacao
+summary:
+  types: [oauth2]
+  oauth2_flows: [clientCredentials, password]
+  token_location: header
+  header_prefix: Bearer
+  scopes_matching: Any
+  notes: >-
+    All B3 for Developers REST APIs authenticate with OAuth 2.0 bearer tokens.
+    The portal documents six token-issuance model APIs - Client Credentials
+    (plain, plus category_ID, key, and scope parameter variants) and Resource
+    Owner Password Credentials (plain and category_ID variants). Access is
+    B2B-only: client_id/client_secret credentials are issued to contracted
+    institutions, not self-serve. The Swagger definitions carry a placeholder
+    token endpoint (https://localhost:8089/api/oauth/token) that the portal
+    substitutes with the client's entitled gateway host at runtime.
+schemes:
+  - name: OAuth2ClientCredentials
+    type: oauth2
+    flow: clientCredentials
+    token_endpoint_path: /aapi/oauth/token
+    token_request:
+      method: POST
+      content_type: application/x-www-form-urlencoded
+      parameters: [client_id, client_secret, grant_type]
+    docs: https://developers.b3.com.br/apis/autenticacao
+    sources:
+      - openapi/b3-exchange-auth-client-credentials-openapi.json
+  - name: OAuth2ROPC
+    type: oauth2
+    flow: password
+    token_endpoint_path: /api/oauth/token
+    token_request:
+      method: POST
+      content_type: application/x-www-form-urlencoded
+      parameters: [client_id, client_secret, grant_type, username, password]
+    docs: https://developers.b3.com.br/apis/autenticacao
+    sources:
+      - openapi/b3-exchange-auth-ropc-openapi.json
+  - name: OAuth2ResourceAccess
+    type: oauth2
+    description: >-
+      Per-API OAuth 2.0 security profile applied across the catalog - bearer
+      access token in the Authorization header, scopes resource.READ and
+      resource.WRITE, any-scope matching.
+    token_location: header
+    header_prefix: Bearer
+    scopes: [resource.READ, resource.WRITE]
+    sources:
+      - openapi/b3-exchange-investor-position-openapi.json
+      - openapi/b3-exchange-investor-transactions-openapi.json
+      - openapi/b3-exchange-isin-openapi.json
+      - openapi/b3-exchange-otc-public-info-openapi.json
+      - openapi/b3-exchange-tesouro-direto-bonds-openapi.json
+      - openapi/b3-exchange-tesouro-direto-positions-openapi.json
+      - openapi/b3-exchange-tesouro-direto-orders-openapi.json
+      - openapi/b3-exchange-banco-b3-custody-openapi.json
+      - openapi/b3-exchange-banco-b3-settlement-openapi.json
+      - openapi/b3-exchange-core-calculation-openapi.json
+      - openapi/b3-exchange-securities-lending-openapi.json
+      - openapi/b3-exchange-insurance-claim-openapi.json

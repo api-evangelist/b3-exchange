@@ -1,0 +1,41 @@
+generated: '2026-07-22'
+method: searched
+source: https://developers.b3.com.br/seguranca + https://developers.b3.com.br/faq + openapi/ (14 Swagger 1.1 definitions)
+authentication:
+  style: OAuth 2.0 bearer token (JWS) in the Authorization header, prefix Bearer
+  flows: [clientCredentials, password]
+  transport: HTTPS TLS 1.2+ with Mutual TLS (client certificate issued by B3) and certificate pinning of the root CA
+  scopes: [resource.READ, resource.WRITE]
+  cross_link: authentication/b3-exchange-authentication.yml
+idempotency:
+  supported: false
+  notes: No idempotency-key header or replay contract is documented anywhere in the portal docs or Swagger definitions.
+pagination:
+  style: link-based
+  response_fields:
+    links: [self, first, prev, next]
+    meta: [totalPages, totalRecords]
+  evidence: Link and Meta models are declared identically across the harvested Swagger definitions.
+field_expansion:
+  supported: false
+  notes: No expand/sparse-field parameters documented.
+request_tracing:
+  supported: unknown
+  notes: No documented request-id header convention.
+versioning:
+  style: uri-path (per-product v1/v2/v3)
+  cross_link: lifecycle/b3-exchange-lifecycle.yml
+error_envelope:
+  shape: '{ "errors": [ { "code", "title", "detail" } ] }'
+  cross_link: errors/b3-exchange-problem-types.yml
+rate_limits:
+  signaling: HTTP 429 Too Many Requests
+  evidence: >-
+    The security page documents request-volume throttling rules for resource
+    protection - exceeding the limits returns HTTP 429. Numeric limits are
+    not published; they are entitlement-managed per contract.
+localization:
+  notes: Portal documentation and most operation summaries / model descriptions are in Portuguese (pt-BR); Tesouro Direto and CORE definitions are partly in English.
+environments:
+  certification_and_production: Per-API docs publish separate CERT and PROD host addresses; portal Swagger carries the gateway placeholder https://developers.b3.com.br:8065.
+  sandbox: Portal Sandbox executes the same operations against pre-registered fictitious responses (see sandbox/b3-exchange-sandbox.yml).

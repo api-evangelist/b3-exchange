@@ -1,0 +1,64 @@
+generated: '2026-07-22'
+method: searched
+source: https://developers.b3.com.br/seguranca + harvested Swagger 1.1 definitions + B3 market data docs
+standards:
+  - id: oauth2
+    conforms: true
+    evidence: >-
+      Portal security page documents OAuth 2.0 (RFC 6749) with client
+      credentials and ROPC token models; 12 of 14 harvested Swagger
+      definitions declare oauth2 authorizations with resource.READ /
+      resource.WRITE scopes.
+  - id: jwt
+    conforms: true
+    evidence: >-
+      Security page states tokens are JWS (JSON Web Signature) per the JWT
+      standard (RFC 7519), obtained via OAuth 2.0.
+  - id: mutual-tls
+    conforms: true
+    evidence: >-
+      Security page mandates Mutual SSL (two-way TLS) with client
+      certificates issued by B3 and certificate pinning of the root CA;
+      HTTPS with TLS 1.2+ required for all API communication.
+  - id: oidc
+    conforms: false
+    evidence: No OpenID Connect discovery document (/.well-known/openid-configuration 404 on developers host).
+  - id: fix
+    conforms: true
+    evidence: >-
+      UMDF real-time market data feed uses FIX/FAST messaging per
+      UMDF_MarketDataSpecification_v2.1.7.pdf (FIX Protocol with FAST
+      encoding).
+  - id: sbe
+    conforms: true
+    evidence: >-
+      B3 Binary UMDF lower-latency feed uses Simple Binary Encoding (SBE)
+      per B3 market data documentation.
+  - id: iso-6166-isin
+    conforms: true
+    evidence: >-
+      B3 is the Brazilian numbering agency; the ISIN API issues and manages
+      ISO 6166 ISIN identifiers (openapi/b3-exchange-isin-openapi.json).
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Error envelope is a custom errors[] array of {code, title, detail}, not application/problem+json.
+  - id: pagination
+    conforms: true
+    evidence: >-
+      Catalog-wide link-based pagination - Link model (self/first/prev/next)
+      plus Meta model (totalPages/totalRecords) in the harvested Swagger
+      definitions.
+  - id: json-api
+    conforms: false
+    evidence: Envelope {data, links, meta} resembles JSON:API but B3 makes no JSON:API claim and omits required member semantics.
+  - id: idempotency
+    conforms: false
+    evidence: No idempotency-key contract documented in the portal docs or Swagger definitions.
+  - id: psd2
+    conforms: false
+    evidence: Not applicable - B3 is a market infrastructure operator, not a PSD2 ASPSP.
+notes: >-
+  Compliance posture (SOC 2 / ISO 27001 style certifications) is not published
+  on a public trust center; B3 is regulated by CVM and the Central Bank of
+  Brazil as a market infrastructure operator, but no certification page was
+  found to cite.

@@ -1,0 +1,71 @@
+generated: '2026-07-22'
+method: derived
+source: openapi/ (models + path parameters across 14 Swagger 1.1 definitions)
+entities:
+  - name: Investor
+    id_field: documentNumber (CPF/CNPJ)
+    sources: [openapi/b3-exchange-investor-position-openapi.json, openapi/b3-exchange-investor-transactions-openapi.json]
+  - name: Position
+    domains: [equities, fixed-income, treasury-bonds, securities-lending, derivatives]
+    sources: [openapi/b3-exchange-investor-position-openapi.json]
+  - name: Movement
+    domains: [equities, fixed-income, treasury-bonds, securities-lending, derivatives]
+    sources: [openapi/b3-exchange-investor-transactions-openapi.json]
+  - name: TreasuryBond
+    id_field: treasuryBondCode
+    sources: [openapi/b3-exchange-tesouro-direto-bonds-openapi.json]
+  - name: Order
+    id_field: orderNumber
+    sources: [openapi/b3-exchange-tesouro-direto-orders-openapi.json]
+  - name: TreasuryPosition
+    key_fields: [participantCode, cpfNumber, cartTypeCode, treasuryBondCode]
+    sources: [openapi/b3-exchange-tesouro-direto-positions-openapi.json]
+  - name: ISIN
+    id_field: isinCode
+    sources: [openapi/b3-exchange-isin-openapi.json]
+  - name: Offer
+    id_field: offeringNumber
+    sources: [openapi/b3-exchange-securities-lending-openapi.json]
+  - name: Trade
+    id_field: securitiesFinancingTradeIdentification
+    sources: [openapi/b3-exchange-securities-lending-openapi.json]
+  - name: Instrument
+    id_field: tickerSymbol
+    domains: [equities, government-bond]
+    sources: [openapi/b3-exchange-securities-lending-openapi.json]
+  - name: Fund
+    id_fields: [codigoFundo, codigoCarteira]
+    sources: [openapi/b3-exchange-banco-b3-custody-openapi.json]
+  - name: Boleta
+    domains: [renda-fixa, renda-variavel, cotas-fundo]
+    sources: [openapi/b3-exchange-banco-b3-custody-openapi.json]
+  - name: PixPayment
+    id_field: requestCode
+    sources: [openapi/b3-exchange-banco-b3-settlement-openapi.json]
+  - name: PixWebhook
+    id_field: pixKey
+    sources: [openapi/b3-exchange-banco-b3-settlement-openapi.json]
+  - name: RiskPortfolio
+    key_fields: [participantId, accountId]
+    sources: [openapi/b3-exchange-core-calculation-openapi.json]
+  - name: FcrCalculation
+    id_field: calculationToken
+    sources: [openapi/b3-exchange-core-calculation-openapi.json]
+  - name: Claim (Sinistro)
+    sources: [openapi/b3-exchange-insurance-claim-openapi.json]
+relationships:
+  - {from: Investor, to: Position, kind: has_many, via: documentNumber}
+  - {from: Investor, to: Movement, kind: has_many, via: documentNumber}
+  - {from: Position, to: TreasuryBond, kind: belongs_to, via: treasuryBondCode}
+  - {from: Order, to: TreasuryBond, kind: belongs_to, via: treasuryBondCode}
+  - {from: TreasuryPosition, to: TreasuryBond, kind: belongs_to, via: treasuryBondCode}
+  - {from: Offer, to: Instrument, kind: belongs_to, via: tickerSymbol}
+  - {from: Trade, to: Offer, kind: belongs_to, via: offeringNumber}
+  - {from: Instrument, to: ISIN, kind: has_one, via: isinCode}
+  - {from: Fund, to: Boleta, kind: has_many, via: codigoFundo}
+  - {from: PixWebhook, to: PixPayment, kind: has_many, via: pixKey}
+  - {from: RiskPortfolio, to: FcrCalculation, kind: has_many, via: calculationToken}
+notes: >-
+  Derived from path parameters and model references in the harvested
+  Swagger 1.1 definitions; B3 publishes no unified object reference, so this
+  graph covers only the 14 harvested definitions (of 114 catalog APIs).

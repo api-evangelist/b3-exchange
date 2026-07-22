@@ -1,0 +1,30 @@
+generated: '2026-07-22'
+method: searched
+source: https://developers.b3.com.br/duvidas/sandbox
+sandbox:
+  url: https://developers.b3.com.br/duvidas/sandbox
+  kind: portal try-it environment
+  description: >-
+    The B3 Sandbox is the portal's API test environment. An application can
+    execute the same operations as in production, but there is no link
+    between sandbox and production - all responses are fictitious,
+    pre-registered mock data. It exists to let developers learn the API
+    structure before contracting access.
+  authentication: >-
+    In the portal's Methods tab, the Authorize dialog auto-fills client_id
+    and client_secret - no real token issuance is needed for sandbox tests.
+    Select all scopes, Authorize, then Try it out / Execute per method.
+    The Authentication model APIs can also be exercised directly from the
+    Autenticação section.
+  test_data: >-
+    Responses are pre-registered fixtures ("respostas pré cadastradas") with
+    no relationship to production data. B3 publishes no magic test
+    identifiers, test cards, or test accounts - fixtures are baked into the
+    portal try-it tool.
+  separation:
+    live_keys: contract-issued OAuth client credentials + B3-issued client certificate (Mutual TLS)
+    sandbox_keys: portal-auto-filled credentials, no self-serve production path
+notes: >-
+  Distinct from the CERTIFICATION environment - per-API docs publish separate
+  CERT and PROD hosts for contracted clients (FAQ); the public Sandbox is the
+  only surface open without a contract.

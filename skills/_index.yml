@@ -1,0 +1,15 @@
+generated: '2026-07-22'
+method: generated
+skills:
+  - file: b3-exchange-tesouro-direto-bond-lookup.md
+    name: Look up Tesouro Direto bond reference data
+    api: openapi/b3-exchange-tesouro-direto-bonds-openapi.json
+    operations: [BondsGet, TreasuryBondsGet, BondsTypesGet, IndextypesGet, EnumsBusinesssegments1ReqGet]
+  - file: b3-exchange-investor-portfolio.md
+    name: Retrieve an investor's consolidated portfolio
+    api: openapi/b3-exchange-investor-position-openapi.json
+    operations: [EquitiesPositionGet, FixedIncomePositionGet, TreasuryBondsPositionGet, SecurityLendingPositionGet, DerivativesSwapPositionGet, EquitiesMovementGet, FixedIncomeMovementGet, TreasuryBondsMovementGet, SecuritiesLendingMovementGet, DerivativesGet]
+  - file: b3-exchange-securities-lending-offer.md
+    name: Manage a securities lending offer lifecycle
+    api: openapi/b3-exchange-securities-lending-openapi.json
+    operations: [TopOfferReq, ListOfferReq, EntryOfferReq, StatusOfferReq, OfferReq, CancellationOfferReq, HitLenderOfferrReq, HitBorrowerOfferReq, DirectOfferReq, TradeReq, StatusTradeReq]

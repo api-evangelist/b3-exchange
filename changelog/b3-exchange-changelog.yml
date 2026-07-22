@@ -1,0 +1,27 @@
+generated: '2026-07-22'
+method: searched
+source: https://developers.b3.com.br/faq
+scheme: per-api-portal-changelog
+docs: https://developers.b3.com.br/apis
+description: >-
+  B3 publishes changelogs per API inside the developer portal: per the FAQ,
+  each API's documentation includes a "Change Log" section carrying the
+  evolution history of each version together with the date each version
+  reached the certification and production environments. There is no single
+  catalog-wide dated changelog page.
+current_versions:
+  - {api: Investor Position, version: v3}
+  - {api: Investor Movement, version: v2}
+  - {api: ISIN, version: v1}
+  - {api: Securities Lending, version: v2}
+  - {api: Banco B3 Custody, version: v1}
+  - {api: Banco B3 Settlement (Pix), version: v1}
+  - {api: CORE Calculation, version: v2}
+  - {api: Insurance Claim Registration, version: v3}
+  - {api: Tesouro Direto Bonds / Orders / Positions, version: v1}
+entries: []
+notes: >-
+  The per-API Change Log tabs are rendered client-side in the portal and were
+  not harvestable as dated entries anonymously; entries[] is intentionally
+  empty rather than fabricated. Version identifiers above are derived from
+  the URI paths of the harvested Swagger definitions.

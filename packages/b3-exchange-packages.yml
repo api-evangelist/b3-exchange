@@ -1,0 +1,23 @@
+generated: '2026-07-22'
+method: searched
+source: npm, PyPI, GitHub org search + B3 for Developers portal Swagger metadata
+packages: []
+notes: >-
+  No first-party B3 client libraries were found on npm (no @b3 scope), PyPI
+  (b3-api / b3-python / b3sdk all 404), or a public GitHub organization
+  (b3-brasil and variants 404). The B3 for Developers portal (Axway API
+  Manager) advertises generated SDK downloads per API - ios-swift, android,
+  and nodejs (availableSDK in each harvested Swagger definition) - but these
+  are portal-login-gated, contract-only downloads, not public registry
+  packages. Access to B3 APIs is B2B under commercial contract, which is
+  consistent with the absence of public SDKs.
+portal_sdks:
+  - language: swift
+    platform: ios
+    distribution: portal-generated download (login required)
+  - language: java
+    platform: android
+    distribution: portal-generated download (login required)
+  - language: javascript
+    platform: nodejs
+    distribution: portal-generated download (login required)

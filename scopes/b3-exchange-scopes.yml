@@ -1,0 +1,33 @@
+generated: '2026-07-22'
+method: derived
+source: openapi/ (Swagger 1.1 authorizations + securityProfile blocks, 12 of 14 definitions)
+docs: https://developers.b3.com.br/apis/autenticacao
+schemes:
+  - name: OAuth2
+    type: oauth2
+    flows:
+      - flow: clientCredentials
+        tokenUrl: https://localhost:8089/api/oauth/token
+        note: >-
+          Placeholder host in the published Swagger definitions - the portal
+          substitutes the client's entitled gateway host at runtime. The
+          documented token model APIs POST to /aapi/oauth/token (client
+          credentials) and /api/oauth/token (ROPC).
+      - flow: password
+        note: Resource Owner Password Credentials model APIs (plain and category_ID variants).
+scopes:
+  - scope: resource.READ
+    description: Read access to the API resource (portal-wide OAuth 2.0 security profile, any-scope matching).
+    flows: [clientCredentials, password]
+    sources:
+      - openapi/ (12 harvested Swagger 1.1 definitions)
+  - scope: resource.WRITE
+    description: Write access to the API resource (portal-wide OAuth 2.0 security profile, any-scope matching).
+    flows: [clientCredentials, password]
+    sources:
+      - openapi/ (12 harvested Swagger 1.1 definitions)
+notes: >-
+  B3 uses a coarse two-scope model (resource.READ / resource.WRITE) applied
+  uniformly across the developer-portal catalog rather than per-product scopes.
+  Some Client Credentials variants add a category_ID, key, or scope request
+  parameter at the token endpoint.
