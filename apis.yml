@@ -1,0 +1,220 @@
+aid: b3-exchange
+url: https://raw.githubusercontent.com/api-evangelist/b3-exchange/refs/heads/main/apis.yml
+name: B3 (Brasil Bolsa Balcão)
+kind: company
+description: B3 S.A. - Brasil, Bolsa, Balcão is the Brazilian exchange and financial
+  market infrastructure operator formed by the 2017 merger of BM&FBOVESPA and Cetip,
+  running trading, clearing, central depository, and OTC registration for equities,
+  derivatives, fixed income, and FX. Its public B3 for Developers portal documents
+  114 B2B REST APIs (OAuth 2.0 client credentials and ROPC) across investor-area,
+  OTC (Balcão), listed-markets, Tesouro Direto, Banco B3, and insurance domains.
+  Real-time market data is distributed through the UMDF multicast feed (FIX/FAST
+  and Binary SBE, L1/L2) via authorized distributors, and end-of-day plus reference
+  data through the UP2DATA file service (TXT/CSV/JSON/XML via client software or
+  cloud). All API and data access is contract-gated for institutions - B3 explicitly
+  offers no self-serve access for individuals.
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+tags:
+- Financial
+- Market Data
+- Stocks
+- Trading
+- Exchange
+- Derivatives
+- Fixed Income
+- Real-Time
+- Reference Data
+- Brazil
+created: '2026-07-21'
+modified: '2026-07-21'
+specificationVersion: '0.19'
+apis:
+- aid: b3-exchange:b3-investor-area-apis
+  name: B3 Investor Area (Área do Investidor) APIs
+  tags:
+  - Investor Data
+  - Positions
+  - Transactions
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developers.b3.com.br/apis/api-area-do-investidor
+  baseURL: https://developers.b3.com.br:8065
+  properties:
+  - url: https://developers.b3.com.br/apis/api-area-do-investidor
+    type: Documentation
+  - url: openapi/b3-exchange-investor-position-openapi.json
+    type: OpenAPI
+  - url: openapi/b3-exchange-investor-transactions-openapi.json
+    type: OpenAPI
+  description: D-1 investor data for authorized fintechs and custodians - investment
+    positions, account transactions, listed-asset buy/sell activity, public offering
+    participation, and provisioned corporate events - under OAuth 2.0 with investor
+    consent flows (STVM request/response authorization).
+- aid: b3-exchange:b3-tesouro-direto-apis
+  name: B3 Tesouro Direto APIs
+  tags:
+  - Government Bonds
+  - Reference Data
+  - Positions
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developers.b3.com.br/apis/tesouro-direto
+  baseURL: https://developers.b3.com.br:8065
+  properties:
+  - url: https://developers.b3.com.br/apis/tesouro-direto
+    type: Documentation
+  - url: openapi/b3-exchange-tesouro-direto-bonds-openapi.json
+    type: OpenAPI
+  - url: openapi/b3-exchange-tesouro-direto-positions-openapi.json
+    type: OpenAPI
+  description: Treasury Direct platform APIs - the Bonds API serves reference data
+    for Brazilian public bonds (name, maturity, Selic code, platform identifiers),
+    Positions serves investor position balances, and Orders covers operations on
+    the Tesouro Direto platform.
+- aid: b3-exchange:b3-otc-balcao-apis
+  name: B3 OTC (Balcão) APIs
+  tags:
+  - OTC
+  - Fixed Income
+  - Registration
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developers.b3.com.br/apis/api-balcao
+  baseURL: https://developers.b3.com.br:8065
+  properties:
+  - url: https://developers.b3.com.br/apis/api-balcao
+    type: Documentation
+  - url: openapi/b3-exchange-otc-public-info-openapi.json
+    type: OpenAPI
+  description: Registration, custody, and consultation APIs for the OTC segment -
+    bank funding instruments (CDB, RDB, LCA, LCI, LF, LIG), credit notes (CCB, CPR,
+    NC), OTC derivatives (swaps, flexible options, term contracts), liens and
+    collateral, plus the NoMe Public-Info API for OTC public information
+    consultation.
+- aid: b3-exchange:b3-listed-markets-apis
+  name: B3 Listed Markets (Listados) APIs
+  tags:
+  - Post-Trade
+  - Risk
+  - Funds
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developers.b3.com.br/apis/api-listados
+  baseURL: https://developers.b3.com.br:8065
+  properties:
+  - url: https://developers.b3.com.br/apis/api-listados
+    type: Documentation
+  description: Post-trade APIs for the listed segment - iMercado investment fund
+    registration and equities fee details, CORE risk calculation and simulation,
+    unified client registration, asset lending, reconciliation files, and
+    guarantee management report data.
+- aid: b3-exchange:b3-isin-api
+  name: B3 ISIN API
+  tags:
+  - ISIN
+  - Reference Data
+  - Identifiers
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developers.b3.com.br/api-details?apiId=78646d15-2690-42df-9822-93e2860fe708&managerId=1&swaggerVersion=2.0&type=rest&usage=api&Itemid=171
+  baseURL: https://developers.b3.com.br:8065
+  properties:
+  - url: https://developers.b3.com.br/api-details?apiId=78646d15-2690-42df-9822-93e2860fe708&managerId=1&swaggerVersion=2.0&type=rest&usage=api&Itemid=171
+    type: Documentation
+  - url: openapi/b3-exchange-isin-openapi.json
+    type: OpenAPI
+  description: ISIN issuance and management for financial instruments - B3 is the
+    Brazilian numbering agency - covering ISIN requests, updates, and consultation
+    of instrument identifier records.
+- aid: b3-exchange:b3-banco-b3-apis
+  name: Banco B3 APIs
+  tags:
+  - Banking
+  - Custody
+  - Settlement
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developers.b3.com.br/apis/bancob3
+  baseURL: https://developers.b3.com.br:8065
+  properties:
+  - url: https://developers.b3.com.br/apis/bancob3
+    type: Documentation
+  description: Banco B3 Custody API for operation billing, position reports, and
+    fund quote validation, plus the Settlement API for Pix statement consultation.
+- aid: b3-exchange:b3-insurance-apis
+  name: B3 Insurance (Seguros) APIs
+  tags:
+  - Insurance
+  - Claims
+  - Registration
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developers.b3.com.br/apis/seguros
+  baseURL: https://developers.b3.com.br:8065
+  properties:
+  - url: https://developers.b3.com.br/apis/seguros
+    type: Documentation
+  description: Insurance-segment registration APIs (V3) covering accepted
+    co-insurance registration, claim registration, document registration, and
+    batch processing return with data-quality feedback.
+- aid: b3-exchange:b3-authentication-apis
+  name: B3 Authentication APIs
+  tags:
+  - Authentication
+  - OAuth
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://developers.b3.com.br/apis/autenticacao
+  baseURL: https://developers.b3.com.br:8065
+  properties:
+  - url: https://developers.b3.com.br/apis/autenticacao
+    type: Documentation
+  description: OAuth 2.0 token issuance APIs used across the B3 API catalog -
+    Client Credentials flows (plain, plus category_ID, key, or scope parameter
+    variants) and Resource Owner Password Credentials flows.
+- aid: b3-exchange:b3-market-data-feed-umdf
+  name: B3 Market Data Feed (UMDF)
+  tags:
+  - Real-Time
+  - Market Data
+  - Order Book
+  - Multicast
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.b3.com.br/en_us/market-data-and-indices/data-services/market-data/
+  properties:
+  - url: https://www.b3.com.br/en_us/market-data-and-indices/data-services/market-data/
+    type: Documentation
+  - url: https://www.b3.com.br/data/files/A4/11/B5/27/B1C6C6106B9896C6DC0D8AA8/UMDF_MarketDataSpecification_v2.1.7.pdf
+    type: Documentation
+  description: B3's real-time market data distribution over the Unified Market
+    Data Feed (UMDF) - event-based bid, ask, trade, and statistics data in L1
+    (top of book) or L2 (full book) depth, real-time or 15-minute delayed,
+    delivered as FIX/FAST and lower-latency Binary SBE multicast streams to
+    authorized distributors and direct connections under commercial contract.
+    Not an HTTP API.
+- aid: b3-exchange:b3-up2data
+  name: B3 UP2DATA
+  tags:
+  - End of Day
+  - Reference Data
+  - Files
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+  humanURL: https://www.b3.com.br/en_us/market-data-and-indices/data-services/up2data/
+  properties:
+  - url: https://www.b3.com.br/en_us/market-data-and-indices/data-services/up2data/
+    type: Documentation
+  - url: https://www.b3.com.br/en_us/market-data-and-indices/data-services/up2data/available-data/
+    type: Documentation
+  description: End-of-day and reference data service covering fixed income,
+    equities, currencies, and debentures for mark-to-market, risk, and pricing
+    workflows - standardized files in TXT, CSV, JSON, or XML delivered daily at
+    predetermined times through client software or a cloud environment, under
+    commercial contract. File-based delivery, not an HTTP API.
+common:
+- type: Website
+  url: https://www.b3.com.br/en_us/
+- type: Portal
+  url: https://developers.b3.com.br/
+- type: Documentation
+  url: https://developers.b3.com.br/apis
+- type: LinkedIn
+  url: https://www.linkedin.com/company/b3
+- type: TermsOfService
+  url: https://www.b3.com.br/en_us/terms-of-use-and-data-protection/
+- type: Support
+  url: https://developers.b3.com.br/contato
+maintainers:
+- FN: Kin Lane
+  email: kin@apievangelist.com

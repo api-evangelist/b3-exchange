@@ -1,0 +1,127 @@
+aid: b3-exchange
+name: B3 (Brasil Bolsa Balcão)
+review:
+  question: Does B3 (Brasil Bolsa Balcão) offer a public, self-serve developer API program?
+  answer: false
+  date: '2026-07-21'
+  reviewer: API Evangelist
+findings:
+  summary: |
+    B3 runs a genuinely public developer portal (B3 for Developers,
+    https://developers.b3.com.br/) that documents 114 REST APIs across nine
+    categories (Área do Investidor, Autenticação, Balcão/OTC, Banco B3,
+    Listados, Seguros, Tesouro Direto, Tesouro Direto - NP, UIF), but access
+    is strictly B2B: the portal states "Nossas APIs são destinadas ao consumo
+    de clientes B2B. Não oferecemos acesso direto as APIs para pessoas
+    físicas" - no self-serve keys for individuals; institutions onboard
+    through a Relationship Manager under commercial contract. Authentication
+    across the catalog is OAuth 2.0 - Client Credentials (plain, and
+    category_ID/key/scope variants) and Resource Owner Password Credentials -
+    each documented as its own Authentication API. The catalog is almost
+    entirely post-trade, registration, and investor-data surface; B3's
+    real-time market data is NOT sold over HTTP APIs but over the UMDF
+    multicast feed (FIX/FAST and lower-latency Binary SBE, L1/L2, real-time
+    or 15-min delayed) through authorized distributors, with end-of-day and
+    reference data delivered as flat files (TXT/CSV/JSON/XML) via the
+    UP2DATA service through client software or cloud. Spec availability is
+    partial-public: each portal API detail page loads a full Swagger
+    (1.1 discovery format) definition from a public unauthenticated AJAX
+    endpoint, while the nicer Swagger 2.0/3.0 file downloads sit behind a
+    portal login (the definition download view returned HTTP 500 without a
+    session). Six definitions were harvested verbatim from the public
+    endpoint. No public pricing, no public status page, and no GitHub
+    organization were found.
+  posture:
+    developerPortal: https://developers.b3.com.br/
+    accessModel: sales-gated-b2b
+    selfServeSignup: false
+    freeTier: false
+    publicPricing: false
+    authentication: OAuth 2.0 (Client Credentials + ROPC variants)
+    ownership: B3 S.A. - Brasil, Bolsa, Balcão (public company, formed 2017 from BM&FBOVESPA + Cetip merger)
+  transports:
+    - protocol: REST
+      scheme: https
+      baseURL: https://developers.b3.com.br:8065
+      documented: true
+      note: Base path documented in the portal's harvested Swagger definitions (portal API gateway); production hosts are entitlement-managed per client.
+    - protocol: FIX/FAST multicast
+      documented: true
+      note: UMDF real-time market data feed, L1/L2, per UMDF_MarketDataSpecification_v2.1.7.pdf.
+    - protocol: SBE binary multicast
+      documented: true
+      note: B3 Binary UMDF lower-latency feed (Simple Binary Encoding).
+    - protocol: FlatFiles
+      documented: true
+      note: UP2DATA end-of-day and reference data files (TXT/CSV/JSON/XML) via client software or cloud environment.
+    - protocol: WebSocket
+      documented: false
+      note: No public WebSocket streaming API is documented.
+  probes:
+    - url: https://developers.b3.com.br/
+      status: 200
+    - url: https://developers.b3.com.br/apis
+      status: 200
+    - url: https://developers.b3.com.br/faq
+      status: 200
+    - url: https://developers.b3.com.br/contato
+      status: 200
+    - url: https://www.b3.com.br/en_us/
+      status: 200
+    - url: https://www.b3.com.br/en_us/market-data-and-indices/data-services/market-data/
+      status: 200
+    - url: https://www.b3.com.br/en_us/market-data-and-indices/data-services/up2data/
+      status: 200
+    - url: https://www.b3.com.br/data/files/A4/11/B5/27/B1C6C6106B9896C6DC0D8AA8/UMDF_MarketDataSpecification_v2.1.7.pdf
+      status: 200
+    - url: https://developer.b3.com.br
+      status: 0
+      note: Host does not resolve.
+    - url: https://docs.b3.com.br
+      status: 0
+      note: Host does not resolve.
+    - url: https://api.b3.com.br
+      status: 0
+      note: Host does not resolve.
+    - url: https://status.b3.com.br
+      status: 0
+      note: Host does not resolve; no public status page found.
+    - url: https://github.com/b3-brasil
+      status: 404
+      note: No GitHub organization found.
+  specProvenance: |
+    The six files under openapi/ were harvested VERBATIM on 2026-07-21 from
+    the B3 for Developers portal's public, unauthenticated AJAX endpoint
+    (index.php?option=com_apiportal&task=ajaxrequest.swaggerLoad&apiId=...,
+    an Axway API Manager-backed Joomla portal). They are complete API
+    definitions in Axway's Swagger 1.1 discovery JSON format (operations,
+    models, auth profiles, base paths), not OpenAPI 3.x - the portal's
+    Swagger 2.0/3.0 file downloads require a portal login and returned HTTP
+    500 anonymously. Harvested: Tesouro Direto Bonds, Tesouro Direto
+    Positions, ISIN API, OTC NoMe Public-Info, B3 Investidor - Posição,
+    B3 Investidor - Movimentação. Nothing was fabricated.
+sources:
+  - url: https://developers.b3.com.br/
+    type: Portal
+    note: B3 for Developers - public portal, nine API categories, B2B-only access statement.
+  - url: https://developers.b3.com.br/apis
+    type: Documentation
+    note: Catalog of 114 REST APIs with swaggerVersion 2.0/3.0 flags per API.
+  - url: https://www.b3.com.br/en_us/market-data-and-indices/data-services/market-data/
+    type: Documentation
+    note: Market Data distribution via UMDF platform - real-time or 15-min delayed, L1/L2, via distributors.
+  - url: https://www.b3.com.br/data/files/A4/11/B5/27/B1C6C6106B9896C6DC0D8AA8/UMDF_MarketDataSpecification_v2.1.7.pdf
+    type: Documentation
+    note: FIX/FAST Market Data Messaging Specification for the Unified Market Data Feed.
+  - url: https://www.b3.com.br/en_us/market-data-and-indices/data-services/up2data/
+    type: Documentation
+    note: UP2DATA end-of-day and reference data file service, TXT/CSV/JSON/XML, client software or cloud, commercial contract.
+actions:
+  openapiHarvested: true
+  openapiPath: openapi/
+  apisYmlUpdated: true
+  reason: |
+    Ten API products cataloged - eight REST categories/products from the
+    public developer portal plus the UMDF multicast feed and UP2DATA file
+    service as documented non-HTTP delivery channels. Posture recorded as
+    sales-gated B2B with a public documentation surface.
