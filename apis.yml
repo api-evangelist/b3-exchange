@@ -37,7 +37,7 @@ tags:
 - Brazil
 created: '2026-07-21'
 modified: '2026-07-22'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: b3-exchange:b3-investor-area-apis
   name: B3 Investor Area (Área do Investidor) APIs
