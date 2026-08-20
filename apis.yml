@@ -42,6 +42,10 @@ apis:
 - aid: b3-exchange:b3-investor-area-apis
   name: B3 Investor Area (Área do Investidor) APIs
   tags:
+  - investor-data
+  - Positions
+  - Transaction
+  tags_raw:
   - Investor Data
   - Positions
   - Transactions
@@ -197,6 +201,8 @@ apis:
   name: B3 Authentication APIs
   tags:
   - Authentication
+  tags_raw:
+  - Authentication
   - OAuth
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://developers.b3.com.br/apis/autenticacao
@@ -237,6 +243,10 @@ apis:
 - aid: b3-exchange:b3-up2data
   name: B3 UP2DATA
   tags:
+  - End of Day
+  - Reference Data
+  - File
+  tags_raw:
   - End of Day
   - Reference Data
   - Files
