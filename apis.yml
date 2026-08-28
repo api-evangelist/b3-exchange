@@ -12,6 +12,17 @@ description: B3 S.A. - Brasil, Bolsa, Balcão is the Brazilian exchange and fina
   data through the UP2DATA file service (TXT/CSV/JSON/XML via client software or cloud). All
   API and data access is contract-gated for institutions - B3 explicitly offers no self-serve
   access for individuals.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: unknown
