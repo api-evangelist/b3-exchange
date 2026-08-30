@@ -53,7 +53,7 @@ apis:
 - aid: b3-exchange:b3-investor-area-apis
   name: B3 Investor Area (Área do Investidor) APIs
   tags:
-  - investor-data
+  - Investor Data
   - Positions
   - Transaction
   tags_raw:
