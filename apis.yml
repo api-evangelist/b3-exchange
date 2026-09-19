@@ -130,6 +130,10 @@ apis:
   tags:
   - Post-Trade
   - Risk
+  - Fund
+  tags_raw:
+  - Post-Trade
+  - Risk
   - Funds
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://developers.b3.com.br/apis/api-listados
