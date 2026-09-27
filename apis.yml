@@ -36,6 +36,17 @@ accessModel:
   method: derived
 image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
+- Finance
+- Market Data
+- Stocks
+- Trading
+- Exchange
+- Derivatives
+- Fixed Income
+- Real-Time
+- Reference Data
+- Brazil
+tags_raw:
 - Financial
 - Market Data
 - Stocks
@@ -129,7 +140,7 @@ apis:
   name: B3 Listed Markets (Listados) APIs
   tags:
   - Post-Trade
-  - Risk
+  - Risk Management
   - Fund
   tags_raw:
   - Post-Trade
