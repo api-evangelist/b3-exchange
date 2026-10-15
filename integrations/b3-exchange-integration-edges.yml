@@ -1,0 +1,58 @@
+edges:
+- partner_name: ISO 10383 (MIC)
+  partner: null
+  type: register
+  channel: standard-directory
+  relationship: standard-participant
+  direction: partner-built
+  evidence: https://www.iso20022.org/sites/default/files/ISO10383_MIC/ISO10383_MIC.csv
+  source: mic
+  category: registered trading venues and market segments
+  contract_reference:
+    register: ISO 10383 Market Identifier Codes (ISO 20022 registration authority)
+    spec_file: null
+    standard: ISO 10383
+    role: venue operator
+    matched_domain: b3.com.br
+    matched_by: domain+verified:b3.com.br
+    categories:
+    - NSPD
+    operating_mics:
+    - BVMF
+    mics:
+    - mic: BVMF
+      operating_mic: BVMF
+      segment: OPRT
+      market: B3 S.A. - BRASIL BOLSA BALCAO
+      category: NSPD
+      legal_name: B3 S.A. - BRASIL BOLSA BALCAO
+      country: BR
+    - mic: CETI
+      operating_mic: BVMF
+      segment: SGMT
+      market: CETIP S.A. - MERCADOS ORGANIZADOS
+      category: NSPD
+      legal_name: B3 S.A. - BRASIL BOLSA BALCAO
+      country: BR
+    detected_by: sweep-capital-markets.py
+    detected: '2026-10-15'
+  detected_by: sweep-capital-markets.py
+  first_seen: '2026-10-15'
+- partner_name: Twelve Data
+  partner: twelvedata
+  partner_match: aggregator
+  channel: partner-built
+  direction: partner-built
+  type: coverage
+  relationship: connector-coverage
+  evidence: https://api.twelvedata.com/exchanges
+  source: twelvedata
+  matched_by: mic:BVMF->domain+verified:b3.com.br
+  mic: BVMF
+  detected_by: sweep-capital-markets.py
+  first_seen: '2026-10-15'
+generated: '2026-10-15'
+method: searched
+checked:
+- https://api.twelvedata.com/exchanges
+- https://www.iso20022.org/sites/default/files/ISO10383_MIC/ISO10383_MIC.csv
