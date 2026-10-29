@@ -1,4 +1,4 @@
-# B3 (Brasil Bolsa Balcão) (b3-exchange)
+# B3 (Brasil Bolsa Balcão)
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,214 +66,149 @@
 
 B3 S.A. - Brasil, Bolsa, Balcão is the Brazilian exchange and financial market infrastructure operator formed by the 2017 merger of BM&FBOVESPA and Cetip, running trading, clearing, central depository, and OTC registration for equities, derivatives, fixed income, and FX. Its public B3 for Developers portal documents 114 B2B REST APIs (OAuth 2.0 client credentials and ROPC) across investor-area, OTC (Balcão), listed-markets, Tesouro Direto, Banco B3, and insurance domains. Real-time market data is distributed through the UMDF multicast feed (FIX/FAST and Binary SBE, L1/L2) via authorized distributors, and end-of-day plus reference data through the UP2DATA file service (TXT/CSV/JSON/XML via client software or cloud). All API and data access is contract-gated for institutions - B3 explicitly offers no self-serve access for individuals.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/b3-exchange/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/b3-exchange/refs/heads/main/apis.yml)
+**Areas:** Finance · Market Data · Stocks · Trading · Exchange · Derivatives · Fixed Income · Real-Time · Reference Data · Brazil
 
-## Tags
+## B3 (Brasil Bolsa Balcão) on APIs.io
 
-- Financial
-- Market Data
-- Stocks
-- Trading
-- Exchange
-- Derivatives
-- Fixed Income
-- Real-Time
-- Reference Data
-- Brazil
+Everything profiled for B3 (Brasil Bolsa Balcão) is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/b3-exchange/](https://apis.io/providers/b3-exchange/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (10)
 
-- **Created:** 2026-07-21
-- **Modified:** 2026-07-21
+- [B3 Investor Area (Área do Investidor) APIs](https://apis.io/apis/b3-exchange/b3-investor-area-apis/) — D-1 investor data for authorized fintechs and custodians - investment positions, account transactions, listed-asset buy/sell activity, public offering…
+- [B3 Tesouro Direto APIs](https://apis.io/apis/b3-exchange/b3-tesouro-direto-apis/) — Treasury Direct platform APIs - the Bonds API serves reference data for Brazilian public bonds (name, maturity, Selic code, platform identifiers), Positions…
+- [B3 OTC (Balcão) APIs](https://apis.io/apis/b3-exchange/b3-otc-balcao-apis/) — Registration, custody, and consultation APIs for the OTC segment - bank funding instruments (CDB, RDB, LCA, LCI, LF, LIG), credit notes (CCB, CPR, NC), OTC…
+- [B3 Listed Markets (Listados) APIs](https://apis.io/apis/b3-exchange/b3-listed-markets-apis/) — Post-trade APIs for the listed segment - iMercado investment fund registration and equities fee details, CORE risk calculation and simulation, unified…
+- [B3 ISIN API](https://apis.io/apis/b3-exchange/b3-isin-api/) — ISIN issuance and management for financial instruments - B3 is the Brazilian numbering agency - covering ISIN requests, updates, and consultation of…
+- [Banco B3 APIs](https://apis.io/apis/b3-exchange/b3-banco-b3-apis/) — Banco B3 Custody API for operation billing, position reports, and fund quote validation, plus the Settlement API for Pix statement consultation.
+- [B3 Insurance (Seguros) APIs](https://apis.io/apis/b3-exchange/b3-insurance-apis/) — Insurance-segment registration APIs (V3) covering accepted co-insurance registration, claim registration, document registration, and batch processing return…
+- [B3 Authentication APIs](https://apis.io/apis/b3-exchange/b3-authentication-apis/) — OAuth 2.0 token issuance APIs used across the B3 API catalog - Client Credentials flows (plain, plus category_ID, key, or scope parameter variants) and…
+- [B3 Market Data Feed (UMDF)](https://apis.io/apis/b3-exchange/b3-market-data-feed-umdf/) — B3's real-time market data distribution over the Unified Market Data Feed (UMDF) - event-based bid, ask, trade, and statistics data in L1 (top of book) or…
+- [B3 UP2DATA](https://apis.io/apis/b3-exchange/b3-up2data/) — End-of-day and reference data service covering fixed income, equities, currencies, and debentures for mark-to-market, risk, and pricing workflows -…
 
-## APIs
+### Published properties
 
-### B3 Investor Area (Área do Investidor) APIs
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-D-1 investor data for authorized fintechs and custodians - investment positions, account transactions, listed-asset buy/sell activity, public offering participation, and provisioned corporate events - under OAuth 2.0 with investor consent flows (STVM request/response authorization).
+#### MCP servers (1)
 
-- **Human URL:** [https://developers.b3.com.br/apis/api-area-do-investidor](https://developers.b3.com.br/apis/api-area-do-investidor)
-- **Base URL:** `https://developers.b3.com.br:8065`
+Model Context Protocol servers that expose the API to agents.
 
-#### Tags
+- [b3-exchange](https://apis.io/servers/b3-exchange/b3-exchange/)
 
-- Investor Data
-- Positions
-- Transactions
+#### Collections (14)
 
-#### Properties
+Postman and Open Collection request collections.
 
-- [Documentation](https://developers.b3.com.br/apis/api-area-do-investidor)
-- [OpenAPI (Swagger 1.1 discovery, harvested)](openapi/b3-exchange-investor-position-openapi.json)
-- [OpenAPI (Swagger 1.1 discovery, harvested)](openapi/b3-exchange-investor-transactions-openapi.json)
+- [API Collection](https://apis.io/collections/b3-exchange/open-b3-exchange-auth-client-credentials/)
+- [API Collection](https://apis.io/collections/b3-exchange/open-b3-exchange-auth-ropc/)
+- [API Collection](https://apis.io/collections/b3-exchange/open-b3-exchange-banco-b3-custody/)
+- [API Collection](https://apis.io/collections/b3-exchange/open-b3-exchange-banco-b3-settlement/)
+- [API Collection](https://apis.io/collections/b3-exchange/open-b3-exchange-core-calculation/)
+- [API Collection](https://apis.io/collections/b3-exchange/open-b3-exchange-insurance-claim/)
+- [API Collection](https://apis.io/collections/b3-exchange/open-b3-exchange-investor-position/)
+- [API Collection](https://apis.io/collections/b3-exchange/open-b3-exchange-investor-transactions/)
+- [API Collection](https://apis.io/collections/b3-exchange/open-b3-exchange-isin/)
+- [API Collection](https://apis.io/collections/b3-exchange/open-b3-exchange-otc-public-info/)
+- [API Collection](https://apis.io/collections/b3-exchange/open-b3-exchange-securities-lending/)
+- [API Collection](https://apis.io/collections/b3-exchange/open-b3-exchange-tesouro-direto-bonds/)
+- [API Collection](https://apis.io/collections/b3-exchange/open-b3-exchange-tesouro-direto-orders/)
+- [API Collection](https://apis.io/collections/b3-exchange/open-b3-exchange-tesouro-direto-positions/)
 
-### B3 Tesouro Direto APIs
+#### Overlays (14)
 
-Treasury Direct platform APIs - the Bonds API serves reference data for Brazilian public bonds (name, maturity, Selic code, platform identifiers), Positions serves investor position balances, and Orders covers operations on the Tesouro Direto platform.
+OpenAPI overlays, including conversational phrasing for each operation.
 
-- **Human URL:** [https://developers.b3.com.br/apis/tesouro-direto](https://developers.b3.com.br/apis/tesouro-direto)
-- **Base URL:** `https://developers.b3.com.br:8065`
+- [B3 Exchange Auth Client Credentials Overlay](https://apis.io/overlays/b3-exchange/b3-exchange-auth-client-credentials-overlay/)
+- [B3 Exchange Auth Ropc Overlay](https://apis.io/overlays/b3-exchange/b3-exchange-auth-ropc-overlay/)
+- [B3 Exchange Banco B3 Custody Overlay](https://apis.io/overlays/b3-exchange/b3-exchange-banco-b3-custody-overlay/)
+- [B3 Exchange Banco B3 Settlement Overlay](https://apis.io/overlays/b3-exchange/b3-exchange-banco-b3-settlement-overlay/)
+- [B3 Exchange Core Calculation Overlay](https://apis.io/overlays/b3-exchange/b3-exchange-core-calculation-overlay/)
+- [B3 Exchange Insurance Claim Overlay](https://apis.io/overlays/b3-exchange/b3-exchange-insurance-claim-overlay/)
+- [B3 Exchange Investor Position Overlay](https://apis.io/overlays/b3-exchange/b3-exchange-investor-position-overlay/)
+- [B3 Exchange Investor Transactions Overlay](https://apis.io/overlays/b3-exchange/b3-exchange-investor-transactions-overlay/)
+- [B3 Exchange Isin Overlay](https://apis.io/overlays/b3-exchange/b3-exchange-isin-overlay/)
+- [B3 Exchange Otc Public Info Overlay](https://apis.io/overlays/b3-exchange/b3-exchange-otc-public-info-overlay/)
+- [B3 Exchange Securities Lending Overlay](https://apis.io/overlays/b3-exchange/b3-exchange-securities-lending-overlay/)
+- [B3 Exchange Tesouro Direto Bonds Overlay](https://apis.io/overlays/b3-exchange/b3-exchange-tesouro-direto-bonds-overlay/)
+- [B3 Exchange Tesouro Direto Orders Overlay](https://apis.io/overlays/b3-exchange/b3-exchange-tesouro-direto-orders-overlay/)
+- [B3 Exchange Tesouro Direto Positions Overlay](https://apis.io/overlays/b3-exchange/b3-exchange-tesouro-direto-positions-overlay/)
 
-#### Tags
+#### Security (3)
 
-- Government Bonds
-- Reference Data
-- Positions
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Properties
+- [B3 Exchange Authentication](https://apis.io/security/b3-exchange/b3-exchange-authentication/)
+- [B3 Exchange Domain Security](https://apis.io/security/b3-exchange/b3-exchange-domain-security/)
+- [B3 Exchange Vulnerability Disclosure](https://apis.io/security/b3-exchange/b3-exchange-vulnerability-disclosure/)
 
-- [Documentation](https://developers.b3.com.br/apis/tesouro-direto)
-- [OpenAPI (Swagger 1.1 discovery, harvested)](openapi/b3-exchange-tesouro-direto-bonds-openapi.json)
-- [OpenAPI (Swagger 1.1 discovery, harvested)](openapi/b3-exchange-tesouro-direto-positions-openapi.json)
+#### OAuth scopes (1)
 
-### B3 OTC (Balcão) APIs
+The permissions the API asks for.
 
-Registration, custody, and consultation APIs for the OTC segment - bank funding instruments (CDB, RDB, LCA, LCI, LF, LIG), credit notes (CCB, CPR, NC), OTC derivatives (swaps, flexible options, term contracts), liens and collateral, plus the NoMe Public-Info API for OTC public information consultation.
+- [B3 Exchange Scopes](https://apis.io/scopes/b3-exchange/b3-exchange-scopes/)
 
-- **Human URL:** [https://developers.b3.com.br/apis/api-balcao](https://developers.b3.com.br/apis/api-balcao)
-- **Base URL:** `https://developers.b3.com.br:8065`
+## Where to find this API
 
-#### Tags
-
-- OTC
-- Fixed Income
-- Registration
-
-#### Properties
-
-- [Documentation](https://developers.b3.com.br/apis/api-balcao)
-- [OpenAPI (Swagger 1.1 discovery, harvested)](openapi/b3-exchange-otc-public-info-openapi.json)
-
-### B3 Listed Markets (Listados) APIs
-
-Post-trade APIs for the listed segment - iMercado investment fund registration and equities fee details, CORE risk calculation and simulation, unified client registration, asset lending, reconciliation files, and guarantee management report data.
-
-- **Human URL:** [https://developers.b3.com.br/apis/api-listados](https://developers.b3.com.br/apis/api-listados)
-- **Base URL:** `https://developers.b3.com.br:8065`
-
-#### Tags
-
-- Post-Trade
-- Risk
-- Funds
-
-#### Properties
-
-- [Documentation](https://developers.b3.com.br/apis/api-listados)
-
-### B3 ISIN API
-
-ISIN issuance and management for financial instruments - B3 is the Brazilian numbering agency - covering ISIN requests, updates, and consultation of instrument identifier records.
-
-- **Human URL:** [B3 ISIN API detail page](https://developers.b3.com.br/api-details?apiId=78646d15-2690-42df-9822-93e2860fe708&managerId=1&swaggerVersion=2.0&type=rest&usage=api&Itemid=171)
-- **Base URL:** `https://developers.b3.com.br:8065`
-
-#### Tags
-
-- ISIN
-- Reference Data
-- Identifiers
-
-#### Properties
-
-- [Documentation](https://developers.b3.com.br/api-details?apiId=78646d15-2690-42df-9822-93e2860fe708&managerId=1&swaggerVersion=2.0&type=rest&usage=api&Itemid=171)
-- [OpenAPI (Swagger 1.1 discovery, harvested)](openapi/b3-exchange-isin-openapi.json)
-
-### Banco B3 APIs
-
-Banco B3 Custody API for operation billing, position reports, and fund quote validation, plus the Settlement API for Pix statement consultation.
-
-- **Human URL:** [https://developers.b3.com.br/apis/bancob3](https://developers.b3.com.br/apis/bancob3)
-- **Base URL:** `https://developers.b3.com.br:8065`
-
-#### Tags
-
-- Banking
-- Custody
-- Settlement
-
-#### Properties
-
-- [Documentation](https://developers.b3.com.br/apis/bancob3)
-
-### B3 Insurance (Seguros) APIs
-
-Insurance-segment registration APIs (V3) covering accepted co-insurance registration, claim registration, document registration, and batch processing return with data-quality feedback.
-
-- **Human URL:** [https://developers.b3.com.br/apis/seguros](https://developers.b3.com.br/apis/seguros)
-- **Base URL:** `https://developers.b3.com.br:8065`
-
-#### Tags
-
-- Insurance
-- Claims
-- Registration
-
-#### Properties
-
-- [Documentation](https://developers.b3.com.br/apis/seguros)
-
-### B3 Authentication APIs
-
-OAuth 2.0 token issuance APIs used across the B3 API catalog - Client Credentials flows (plain, plus category_ID, key, or scope parameter variants) and Resource Owner Password Credentials flows.
-
-- **Human URL:** [https://developers.b3.com.br/apis/autenticacao](https://developers.b3.com.br/apis/autenticacao)
-- **Base URL:** `https://developers.b3.com.br:8065`
-
-#### Tags
-
-- Authentication
-- OAuth
-
-#### Properties
-
-- [Documentation](https://developers.b3.com.br/apis/autenticacao)
-
-### B3 Market Data Feed (UMDF)
-
-B3's real-time market data distribution over the Unified Market Data Feed (UMDF) - event-based bid, ask, trade, and statistics data in L1 (top of book) or L2 (full book) depth, real-time or 15-minute delayed, delivered as FIX/FAST and lower-latency Binary SBE multicast streams to authorized distributors and direct connections under commercial contract. Not an HTTP API.
-
-- **Human URL:** [https://www.b3.com.br/en_us/market-data-and-indices/data-services/market-data/](https://www.b3.com.br/en_us/market-data-and-indices/data-services/market-data/)
-
-#### Tags
-
-- Real-Time
-- Market Data
-- Order Book
-- Multicast
-
-#### Properties
-
-- [Documentation](https://www.b3.com.br/en_us/market-data-and-indices/data-services/market-data/)
-- [UMDF FIX/FAST Market Data Messaging Specification (PDF)](https://www.b3.com.br/data/files/A4/11/B5/27/B1C6C6106B9896C6DC0D8AA8/UMDF_MarketDataSpecification_v2.1.7.pdf)
-
-### B3 UP2DATA
-
-End-of-day and reference data service covering fixed income, equities, currencies, and debentures for mark-to-market, risk, and pricing workflows - standardized files in TXT, CSV, JSON, or XML delivered daily at predetermined times through client software or a cloud environment, under commercial contract. File-based delivery, not an HTTP API.
-
-- **Human URL:** [https://www.b3.com.br/en_us/market-data-and-indices/data-services/up2data/](https://www.b3.com.br/en_us/market-data-and-indices/data-services/up2data/)
-
-#### Tags
-
-- End of Day
-- Reference Data
-- Files
-
-#### Properties
-
-- [Documentation](https://www.b3.com.br/en_us/market-data-and-indices/data-services/up2data/)
-- [Available Data](https://www.b3.com.br/en_us/market-data-and-indices/data-services/up2data/available-data/)
-
-## Common Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.b3.com.br/en_us/)
-- [Portal](https://developers.b3.com.br/)
 - [Documentation](https://developers.b3.com.br/apis)
-- [LinkedIn](https://www.linkedin.com/company/b3)
-- [Terms of Service](https://www.b3.com.br/en_us/terms-of-use-and-data-protection/)
+- [Getting started](https://developers.b3.com.br/faq)
+- [API reference](https://developers.b3.com.br/apis)
 - [Support](https://developers.b3.com.br/contato)
+- [Security](https://developers.b3.com.br/seguranca)
+- [Terms of service](https://www.b3.com.br/en_us/terms-of-use-and-data-protection/)
+- [Privacy policy](https://www.b3.com.br/en_us/terms-of-use-and-data-protection/)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 38.7** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 62.5 |
+| Contract quality | 24.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 26.3 |
+| Developer ergonomics | 63.7 |
+| Access clarity | 27.6 |
+
+**Agent readiness 19.2** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | documented (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | derived (partial credit) |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 38.0** — Securities & Market Data
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/b3-exchange/](https://apis.io/providers/b3-exchange/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for B3 (Brasil Bolsa Balcão): the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/b3-exchange/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
